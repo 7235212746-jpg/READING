@@ -37,7 +37,8 @@
           wrapper.textContent = code.textContent;
           code.parentElement.replaceWith(wrapper);
         });
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'strict' });
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'strict' });
+        await mermaid.run({ querySelector: '.mermaid' });
       }
     </script>
   </body>
