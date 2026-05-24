@@ -49,7 +49,7 @@ $$
 - $\mathbf{S}_i \cdot \mathbf{S}_j$ 是两个自旋的内积。
 - $J > 0$ 对应 antiferromagnetic exchange（反铁磁交换 / 反強磁性交換）。
 
-对两根长度固定的经典向量，$\mathbf{S}_i \cdot \mathbf{S}_j = |\mathbf{S}|^2 \cos\theta$。$J > 0$ 时，夹角 $\theta = 180^\circ$ 的一对边能量最低。但三角形不可能让三对同时都是 $180^\circ$。
+对两根长度固定的经典向量，$\mathbf{S}_i \cdot \mathbf{S}_j = \lVert \mathbf{S} \rVert^2 \cos\theta$。$J > 0$ 时，夹角 $\theta = 180^\circ$ 的一对边能量最低。但三角形不可能让三对同时都是 $180^\circ$。
 
 ## 为什么经典三角形选 120 度
 
