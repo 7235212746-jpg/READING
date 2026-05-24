@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f3">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Kagome Reading</span>
+        </a>
+        <nav class="nav" aria-label="站点导航">
+          <a href="{{ '/' | relative_url }}">今日文章</a>
+          <a href="{{ '/#path' | relative_url }}">知识路径</a>
+          <a href="{{ '/about/' | relative_url }}">说明</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      {{ content }}
+    </main>
+    <footer class="footer">
+      <p>公开学习笔记。结论请回到原论文、补充材料与实验记录核查。</p>
+    </footer>
+    <script type="module">
+      const blocks = document.querySelectorAll('code.language-mermaid');
+      if (blocks.length) {
+        const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
+        blocks.forEach((code) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'mermaid';
+          wrapper.textContent = code.textContent;
+          code.parentElement.replaceWith(wrapper);
+        });
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'strict' });
+      }
+    </script>
+  </body>
+</html>

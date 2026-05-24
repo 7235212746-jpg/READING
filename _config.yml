@@ -1,0 +1,7 @@
+title: Kagome Reading
+description: Kagome materials, frustration and first-principles learning notes
+lang: zh-CN
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
