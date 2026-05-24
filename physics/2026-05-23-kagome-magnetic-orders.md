@@ -14,12 +14,12 @@ verification_status: "磁构型定义由理论文献支持；实验判据为方�
 
 ## 快速阅读版
 
-单个三角形上的三个经典反铁磁自旋可以形成 `120 degree structure（120 度结构 / 120度構造）`。可是 Kagome 有很多共享角的三角形：把这些 120 度小单元铺满整张格子时，可以形成不同的 periodic magnetic order（周期磁序 / 周期磁気秩序）。
+单个三角形上的三个经典反铁磁自旋可以形成 $120^\circ$ structure（120 度结构 / 120度構造）。可是 Kagome 有很多共享角的三角形：把这些 $120^\circ$ 小单元铺满整张格子时，可以形成不同的 periodic magnetic order（周期磁序 / 周期磁気秩序）。
 
 今天先认识两个常见名字：
 
-- `q=0 state（q=0 态 / q=0 状態）`：磁性周期与最小晶胞相容，每个 Kagome 单胞里的三种自旋方向重复下去。
-- `sqrt(3) x sqrt(3) state（根号三乘根号三态 / sqrt(3) x sqrt(3) 状態）`：磁性超胞更大，包含九个位点的重复图案。
+- $q=0$ state（$q=0$ 态 / $q=0$ 状態）：磁性周期与最小晶胞相容，每个 Kagome 单胞里的三种自旋方向重复下去。
+- $\sqrt{3}\times\sqrt{3}$ state（根号三乘根号三态 / $\sqrt{3}\times\sqrt{3}$ 状態）：磁性超胞更大，包含九个位点的重复图案。
 
 这两个名字不是咒语，而是告诉你：如果材料真的形成这种磁序，中子散射中的峰会出现在哪里。
 
@@ -30,7 +30,7 @@ Journal: Physical Review B 84, 224428 (2011)
 Link: <https://doi.org/10.1103/PhysRevB.84.224428>  
 Open preprint: <https://arxiv.org/abs/1110.3202>
 
-为什么选它：论文明确以 `q=0` 和 `sqrt(3) x sqrt(3)` 为 reference states（参考态 / 参照状態），适合学习这两个构型为什么在理论比较中出现。
+为什么选它：论文明确以 $q=0$ 和 $\sqrt{3}\times\sqrt{3}$ 为 reference states（参考态 / 参照状態），适合学习这两个构型为什么在理论比较中出现。
 
 注意：这是理论计算论文。它比较模型中的候选态，不等于某个真实样品已经观测到相同磁序。
 
@@ -63,7 +63,7 @@ Open preprint: <https://arxiv.org/abs/1110.3202>
 
 **研究问题**
 
-样品是否形成 `q=0` 或 `sqrt(3) x sqrt(3)` 的 long-range magnetic order（长程磁有序 / 長距離磁気秩序）？
+样品是否形成 $q=0$ 或 $\sqrt{3}\times\sqrt{3}$ 的 long-range magnetic order（长程磁有序 / 長距離磁気秩序）？
 
 **原始数据**
 
@@ -82,7 +82,7 @@ Open preprint: <https://arxiv.org/abs/1110.3202>
 **结论边界**
 
 - 若低温峰位置和强度符合一个候选磁结构，可支持该磁序模型。
-- 若只有弥散强度而无清晰 Bragg 峰，则不应宣称观察到 `q=0` 或 `sqrt(3) x sqrt(3)` 长程序。
+- 若只有弥散强度而无清晰 Bragg 峰，则不应宣称观察到 $q=0$ 或 $\sqrt{3}\times\sqrt{3}$ 长程序。
 - 若样品存在 disorder（无序 / 無秩序）或多相，峰的解释会更困难。
 
 ## 你读图时要圈出的东西
@@ -105,7 +105,7 @@ Open preprint: <https://arxiv.org/abs/1110.3202>
 
 ## 延伸阅读与可信度
 
-- Liu, Li and Su, _Spin-ordered ground state and thermodynamic behaviors of the spin-3/2 kagome Heisenberg antiferromagnet_, Physical Review E 94, 032114 (2016): <https://doi.org/10.1103/PhysRevE.94.032114>. 论文明确描述 `q=0` 为三位点单胞、`sqrt(3) x sqrt(3)` 为九位点结构；但讨论的是 `S=3/2` 模型，不能直接搬到 `S=1/2` 材料。
+- Liu, Li and Su, _Spin-ordered ground state and thermodynamic behaviors of the spin-3/2 kagome Heisenberg antiferromagnet_, Physical Review E 94, 032114 (2016): <https://doi.org/10.1103/PhysRevE.94.032114>. 论文明确描述 $q=0$ 为三位点单胞、$\sqrt{3}\times\sqrt{3}$ 为九位点结构；但讨论的是 $S=3/2$ 模型，不能直接搬到 $S=1/2$ 材料。
 - Norman, RMP 2016: <https://doi.org/10.1103/RevModPhys.88.041002>. 用于从磁构型过渡到 herbertsmithite 的真实实验问题。
 - Han et al., Nature 2012: <https://doi.org/10.1038/nature11659>. 下一阶段将读的原始中子散射实验。
 

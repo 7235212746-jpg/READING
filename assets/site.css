@@ -383,6 +383,15 @@ a {
   color: inherit;
 }
 
+.article-body mjx-container[display="true"] {
+  margin: 23px 0 !important;
+  padding: 15px 8px;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
 .article-body a {
   overflow-wrap: anywhere;
 }
