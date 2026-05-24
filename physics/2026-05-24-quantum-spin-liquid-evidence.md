@@ -73,7 +73,7 @@ Han 等人报告了单晶样品上的连续自旋激发响应，并将其作为 
 
 ## 后续修正：低能信号中的缺陷
 
-Han、Norman、Wen 等在 Physical Review B 94 (2016) 进一步报告：在非常低的能量转移 $E < 0.8\ \mathrm{meV}$ 区域，散射的动量依赖与较高能量的 Kagome 本征自旋响应明显不同，并可由层间 Cu impurities（铜杂质 / Cu不純物）之间的短程关联解释。
+Han、Norman、Wen 等在 Physical Review B 94 (2016) 进一步报告：在非常低的能量转移 $$E < 0.8\ \mathrm{meV}$$ 区域，散射的动量依赖与较高能量的 Kagome 本征自旋响应明显不同，并可由层间 Cu impurities（铜杂质 / Cu不純物）之间的短程关联解释。
 
 来源：NIST publication page / PRB 94: <https://www.nist.gov/publications/correlated-impurities-and-intrinsic-spin-liquid-physics-kagome-material-herbertsmithite>
 
