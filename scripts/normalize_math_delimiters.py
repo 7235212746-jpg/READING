@@ -10,6 +10,8 @@ SKIP_DIRS = {".git", ".github", "_site"}
 INLINE_DOUBLE_DOLLAR = re.compile(r"\$\$([^$\n]+?)\$\$")
 SINGLE_DOLLAR = re.compile(r"(?<!\$)\$(?!\$)")
 INLINE_CODE = re.compile(r"`[^`]*`")
+SINGLE_INLINE_OPEN = re.compile(r"(?<!\\)\\\(")
+SINGLE_INLINE_CLOSE = re.compile(r"(?<!\\)\\\)")
 
 
 def normalize_document(text: str) -> str:
@@ -17,11 +19,21 @@ def normalize_document(text: str) -> str:
     normalized: list[str] = []
     in_display = False
     for line in lines:
-        if line.strip() == "$$":
-            normalized.append(("\\]" if in_display else "\\[") + ("\n" if line.endswith("\n") else ""))
-            in_display = not in_display
+        ending = "\n" if line.endswith("\n") else ""
+        if line.strip() in {"$$", r"\[", r"\\["}:
+            normalized.append("\\\\[" + ending)
+            in_display = True
             continue
-        normalized.append(INLINE_DOUBLE_DOLLAR.sub(r"\\(\1\\)", line))
+        if line.strip() in {r"\]", r"\\]"}:
+            normalized.append("\\\\]" + ending)
+            in_display = False
+            continue
+        line = INLINE_DOUBLE_DOLLAR.sub(r"\\\\(\1\\\\)", line)
+        line = SINGLE_INLINE_OPEN.sub(r"\\\\(", line)
+        line = SINGLE_INLINE_CLOSE.sub(r"\\\\)", line)
+        normalized.append(line)
+    if in_display:
+        raise ValueError("Unclosed display-math delimiter found.")
     return "".join(normalized)
 
 
@@ -33,8 +45,7 @@ def has_unescaped_single_dollar(text: str) -> bool:
             continue
         if in_fence:
             continue
-        prose_only = INLINE_CODE.sub("", line)
-        if SINGLE_DOLLAR.search(prose_only):
+        if SINGLE_DOLLAR.search(INLINE_CODE.sub("", line)):
             return True
     return False
 
@@ -52,7 +63,11 @@ def main() -> int:
     errors: list[str] = []
     for path in markdown_files():
         original = path.read_text(encoding="utf-8")
-        updated = normalize_document(original)
+        try:
+            updated = normalize_document(original)
+        except ValueError as exc:
+            errors.append(f"{path.relative_to(ROOT)}: {exc}")
+            continue
         if updated != original:
             changed.append(path)
             if not check_only:
@@ -60,7 +75,7 @@ def main() -> int:
         if has_unescaped_single_dollar(updated):
             errors.append(f"Single-dollar math marker remains in prose: {path.relative_to(ROOT)}")
     if check_only and changed:
-        errors.extend(f"Legacy $$ marker remains: {path.relative_to(ROOT)}" for path in changed)
+        errors.extend(f"Unescaped or legacy math delimiter remains: {path.relative_to(ROOT)}" for path in changed)
     if errors:
         print("\n".join(errors))
         return 1
@@ -69,7 +84,7 @@ def main() -> int:
         for path in changed:
             print(f"- {path.relative_to(ROOT)}")
     else:
-        print("Math delimiters already follow the publishing standard.")
+        print("Math delimiters already follow the kramdown-safe standard.")
     return 0
 
 
