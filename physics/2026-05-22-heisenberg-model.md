@@ -16,11 +16,11 @@ verification_status: "模型定义依据综述与经典教材共识；涉及真�
 
 昨天你用一句话看懂了 geometric frustration（几何挫折 / 幾何学的フラストレーション）：三角形里反铁磁边无法全都满意。今天我们把“满意”变成能量：
 
-\[
+\\[
 H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j
-\]
+\\]
 
-当 exchange constant（交换常数 / 交換定数）\(J > 0\) 时，相邻自旋反平行会降低能量；三角形上三个连续可转动的经典自旋选择彼此约 \(120^\circ\)，因为这比强行做两个反平行、一个冲突更公平地分摊挫折。
+当 exchange constant（交换常数 / 交換定数）\\(J > 0\\) 时，相邻自旋反平行会降低能量；三角形上三个连续可转动的经典自旋选择彼此约 \\(120^\circ\\)，因为这比强行做两个反平行、一个冲突更公平地分摊挫折。
 
 这是一篇模型入门文章，不是一篇测量论文。它教你下一次看到磁化、比热或中子散射数据时，知道作者想从数据中反推出哪个哈密顿量。
 
@@ -40,26 +40,26 @@ Link: <https://doi.org/10.1103/RevModPhys.88.041002>
 
 **exchange interaction（交换相互作用 / 交換相互作用）** 来自电子波函数、泡利不相容原理和库仑作用的共同后果。对许多局域磁矩绝缘体，低能行为可先近似成相邻自旋之间的能量耦合。
 
-\[
+\\[
 H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j
-\]
+\\]
 
 - `H` 是模型总能量，即 Hamiltonian（哈密顿量 / ハミルトニアン）。
 - `<ij>` 是相邻格点对。
-- \(\mathbf{S}_i \cdot \mathbf{S}_j\) 是两个自旋的内积。
-- \(J > 0\) 对应 antiferromagnetic exchange（反铁磁交换 / 反強磁性交換）。
+- \\(\mathbf{S}_i \cdot \mathbf{S}_j\\) 是两个自旋的内积。
+- \\(J > 0\\) 对应 antiferromagnetic exchange（反铁磁交换 / 反強磁性交換）。
 
-对两根长度固定的经典向量，\(\mathbf{S}_i \cdot \mathbf{S}_j = \lVert \mathbf{S} \rVert^2 \cos\theta\)。\(J > 0\) 时，夹角 \(\theta = 180^\circ\) 的一对边能量最低。但三角形不可能让三对同时都是 \(180^\circ\)。
+对两根长度固定的经典向量，\\(\mathbf{S}_i \cdot \mathbf{S}_j = \lVert \mathbf{S} \rVert^2 \cos\theta\\)。\\(J > 0\\) 时，夹角 \\(\theta = 180^\circ\\) 的一对边能量最低。但三角形不可能让三对同时都是 \\(180^\circ\\)。
 
 ## 为什么经典三角形选 120 度
 
-设三个自旋长度相同。如果它们依次相差 \(120^\circ\)，三条边内积都是 \(\cos(120^\circ) = -\frac{1}{2}\)。没有任何一条边完全满足反平行，但每条边都同等降低了能量。
+设三个自旋长度相同。如果它们依次相差 \\(120^\circ\\)，三条边内积都是 \\(\cos(120^\circ) = -\frac{1}{2}\\)。没有任何一条边完全满足反平行，但每条边都同等降低了能量。
 
 更精炼地写：
 
-\[
+\\[
 \mathbf{S}_A + \mathbf{S}_B + \mathbf{S}_C = 0
-\]
+\\]
 
 当三根等长向量在平面内首尾相接成为闭合三角形时，总和为零，也就是经典最近邻三角形反铁磁的一组最低能构型。
 
@@ -67,7 +67,7 @@ H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j
 
 ## 从一个三角形到 Kagome
 
-Kagome lattice（Kagome 格子 / カゴメ格子）由角共享三角形组成。每个局域三角形都想满足 \(\mathbf{S}_A + \mathbf{S}_B + \mathbf{S}_C = 0\)，但相邻三角形共享自旋。这会留下许多能量相同或接近的经典构型，而不是迅速选出唯一的 Néel order（尼尔有序 / ネール秩序）。
+Kagome lattice（Kagome 格子 / カゴメ格子）由角共享三角形组成。每个局域三角形都想满足 \\(\mathbf{S}_A + \mathbf{S}_B + \mathbf{S}_C = 0\\)，但相邻三角形共享自旋。这会留下许多能量相同或接近的经典构型，而不是迅速选出唯一的 Néel order（尼尔有序 / ネール秩序）。
 
 量子情形会更加困难：自旋不能仅被当作固定方向的箭头，quantum fluctuation（量子涨落 / 量子揺らぎ）会在多个经典候选之间叠加。对 `S = 1/2` Kagome Heisenberg antiferromagnet，模型是否产生 quantum spin liquid（量子自旋液体 / 量子スピン液体）是长期核心问题。
 
@@ -116,7 +116,7 @@ Kagome lattice（Kagome 格子 / カゴメ格子）由角共享三角形组成�
 
 ## 今日练习与技能点
 
-练习：请用一句话分别解释 \(J > 0\)、\(120^\circ\)、“没有长程有序”三者之间是什么关系，又不是什么关系。
+练习：请用一句话分别解释 \\(J > 0\\)、\\(120^\circ\\)、“没有长程有序”三者之间是什么关系，又不是什么关系。
 
 ```mermaid
 flowchart TD

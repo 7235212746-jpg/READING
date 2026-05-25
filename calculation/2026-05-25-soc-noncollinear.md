@@ -16,7 +16,7 @@ verification_status: "流程与警告据 VASP 官方 LSORBIT/LNONCOLLINEAR/MAGMO
 
 不含 spin-orbit coupling（自旋轨道耦合 / スピン軌道相互作用）时，整体把所有磁矩一起旋转，能量通常不应知道它们相对于晶轴指向哪里；含 SOC 后，自旋自由度与晶格中的轨道运动耦合，in-plane（面内 / 面内）与 out-of-plane（面外 / 面外）取向可能产生不同能量。
 
-这正是 magnetic anisotropy（磁各向异性 / 磁気異方性）、拓扑能带开隙和某些 Kagome 磁性问题的重要入口。可怕的是，这些能量差可能非常小；官方 VASP 文档明确警告 SOC 的能量差可在 \(\mu\mathrm{eV/atom}\) 量级，k 点收敛困难且计算耗时很大。
+这正是 magnetic anisotropy（磁各向异性 / 磁気異方性）、拓扑能带开隙和某些 Kagome 磁性问题的重要入口。可怕的是，这些能量差可能非常小；官方 VASP 文档明确警告 SOC 的能量差可在 \\(\mu\mathrm{eV/atom}\\) 量级，k 点收敛困难且计算耗时很大。
 
 ## 主文档
 
@@ -33,7 +33,7 @@ verification_status: "流程与警告据 VASP 官方 LSORBIT/LNONCOLLINEAR/MAGMO
 
 ## 从 120 度磁构型到 SOC
 
-Kagome 三角形的 \(120^\circ\) 构型本来就要求 noncollinear magnetism（非共线磁性 / 非共線磁性）。在不加 SOC 的理想计算中，你可以研究自旋之间的相对角度和能量。
+Kagome 三角形的 \\(120^\circ\\) 构型本来就要求 noncollinear magnetism（非共线磁性 / 非共線磁性）。在不加 SOC 的理想计算中，你可以研究自旋之间的相对角度和能量。
 
 加入 SOC 后，进一步能问：
 
@@ -57,9 +57,9 @@ Kagome 三角形的 \(120^\circ\) 构型本来就要求 noncollinear magnetism�
 
 **处理动作**
 
-\[
+\\[
 \mathrm{MAE} = E(\text{direction A}) - E(\text{direction B})
-\]
+\\]
 
 `MAE` 是 magnetic anisotropy energy（磁各向异性能 / 磁気異方性エネルギー）。由于它常远小于绝对总能量，需要：
 
@@ -118,7 +118,7 @@ Kagome 三角形的 \(120^\circ\) 构型本来就要求 noncollinear magnetism�
 
 ## 今日技能点
 
-练习：某论文声称面内方向比面外低 \(3\ \mu\mathrm{eV/atom}\)，却只使用一个 k 网格。请列出你会要求查看的三张收敛/验证图。
+练习：某论文声称面内方向比面外低 \\(3\ \mu\mathrm{eV/atom}\\)，却只使用一个 k 网格。请列出你会要求查看的三张收敛/验证图。
 
 ```mermaid
 flowchart TD

@@ -137,18 +137,18 @@ C 为了和 B 相反，应当是 `↑`。
 
 最小模型常写成最近邻 Heisenberg 反铁磁模型：
 
-\[
+\\[
 H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j,
 \qquad J > 0
-\]
+\\]
 
 这里：
 
-- \(\mathbf{S}_i\) 是第 \(i\) 个格点上的自旋。
+- \\(\mathbf{S}_i\\) 是第 \\(i\\) 个格点上的自旋。
 - `<ij>` 表示相邻格点对。
-- \(J > 0\) 表示反铁磁耦合。
+- \\(J > 0\\) 表示反铁磁耦合。
 
-在经典图像里，两自旋反平行能让 \(\mathbf{S}_i \cdot \mathbf{S}_j\) 变小。
+在经典图像里，两自旋反平行能让 \\(\mathbf{S}_i \cdot \mathbf{S}_j\\) 变小。
 在三角形上，三条边都想要反平行，但几何上无法全部实现。Kagome 格子把这种三角形挫折复制到整个二维网络。
 
 ## 前置知识地图
@@ -292,7 +292,7 @@ flowchart TD
 
 ## 下一篇建议主题
 
-Heisenberg 模型：为什么 \(H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j\) 是理解 Kagome 磁挫折的第一条公式？
+Heisenberg 模型：为什么 \\(H = J \sum_{\langle i,j \rangle} \mathbf{S}_i \cdot \mathbf{S}_j\\) 是理解 Kagome 磁挫折的第一条公式？
 
 ## 可靠性备注
 
