@@ -7,10 +7,25 @@
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
     <script>
+      // Earlier notes used $$...$$ inside paragraphs. Turn only those short
+      // inline occurrences into inline MathJax syntax; standalone equations
+      // remain display mathematics for backwards compatibility.
+      document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.article-body p, .article-body li, .article-body h1, .article-body h2, .article-body h3');
+        elements.forEach((element) => {
+          const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+          let node;
+          while ((node = walker.nextNode())) {
+            if (node.parentElement && node.parentElement.closest('code, pre, script, style')) continue;
+            node.nodeValue = node.nodeValue.replace(/\$\$([^$\n]+?)\$\$/g, '\\($1\\)');
+          }
+        });
+      });
       window.MathJax = {
         tex: {
           inlineMath: [['\\(', '\\)']],
-          displayMath: [['\\[', '\\]']]
+          displayMath: [['\\[', '\\]'], ['$$', '$$']],
+          processEscapes: true
         }
       };
     </script>
