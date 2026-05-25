@@ -49,7 +49,11 @@ async function checkPage(page, item) {
 const pages = publishablePages();
 if (!pages.length) throw new Error('No publishable pages found for formula verification.');
 
-const browser = await chromium.launch({ headless: true });
+const launchOptions = { headless: true };
+if (process.env.BROWSER_EXECUTABLE_PATH) {
+  launchOptions.executablePath = process.env.BROWSER_EXECUTABLE_PATH;
+}
+const browser = await chromium.launch(launchOptions);
 const tab = await browser.newPage();
 let results = [];
 try {
