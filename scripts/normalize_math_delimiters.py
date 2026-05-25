@@ -9,26 +9,34 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {".git", ".github", "_site"}
 INLINE_DOUBLE_DOLLAR = re.compile(r"\$\$([^$\n]+?)\$\$")
 SINGLE_DOLLAR = re.compile(r"(?<!\$)\$(?!\$)")
+INLINE_CODE = re.compile(r"`[^`]*`")
 
 
 def normalize_document(text: str) -> str:
     lines = text.splitlines(keepends=True)
     normalized: list[str] = []
-    in_fence = False
     in_display = False
     for line in lines:
-        if line.lstrip().startswith("```"):
-            in_fence = not in_fence
-        if in_fence:
-            # Documentation examples must teach the current safe syntax too.
-            normalized.append(INLINE_DOUBLE_DOLLAR.sub(r"\\(\1\\)", line))
-            continue
         if line.strip() == "$$":
             normalized.append(("\\]" if in_display else "\\[") + ("\n" if line.endswith("\n") else ""))
             in_display = not in_display
             continue
         normalized.append(INLINE_DOUBLE_DOLLAR.sub(r"\\(\1\\)", line))
     return "".join(normalized)
+
+
+def has_unescaped_single_dollar(text: str) -> bool:
+    in_fence = False
+    for line in text.splitlines():
+        if line.lstrip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        prose_only = INLINE_CODE.sub("", line)
+        if SINGLE_DOLLAR.search(prose_only):
+            return True
+    return False
 
 
 def markdown_files() -> list[Path]:
@@ -49,8 +57,8 @@ def main() -> int:
             changed.append(path)
             if not check_only:
                 path.write_text(updated, encoding="utf-8")
-        if SINGLE_DOLLAR.search(updated):
-            errors.append(f"Single-dollar math marker remains: {path.relative_to(ROOT)}")
+        if has_unescaped_single_dollar(updated):
+            errors.append(f"Single-dollar math marker remains in prose: {path.relative_to(ROOT)}")
     if check_only and changed:
         errors.extend(f"Legacy $$ marker remains: {path.relative_to(ROOT)}" for path in changed)
     if errors:
