@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" role="img" aria-labelledby="title desc">
+  <title id="title">DFT 输入输出与收敛判断教学示意</title>
+  <desc id="desc">上部是晶体结构、磁构型和数值设置输入计算引擎，再输出能量与电子结构；下部显示不稳定与逐渐稳定的能量差曲线。</desc>
+  <style>
+    text { font-family: Arial, 'Noto Sans SC', sans-serif; fill:#18273d; }
+    .title { font-size:24px; font-weight:700; }
+    .head { font-size:18px; font-weight:700; }
+    .small { font-size:15px; fill:#53657a; }
+    .box { fill:#f8fafc; stroke:#d5deea; stroke-width:2; rx:12; }
+    .engine { fill:#edf6ff; stroke:#2563b0; stroke-width:2; rx:12; }
+    .arrow { stroke:#087c69; stroke-width:3; marker-end:url(#a); }
+    .axis { stroke:#27384d; stroke-width:2; }
+    .curve { fill:none; stroke:#1565c0; stroke-width:4; }
+    .target { stroke:#087c69; stroke-width:2; stroke-dasharray:6 4; }
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#087c69"/></marker></defs>
+  <rect width="1000" height="570" fill="#fff"/>
+  <text class="title" x="34" y="39">DFT 不是黑箱：输入、计算、检查</text>
+  <text class="small" x="34" y="66">教学示意：曲线不是真实材料数据，只用于学习怎样判断数值结果是否稳定。</text>
+  <rect class="box" x="42" y="105" width="214" height="128"/>
+  <text class="head" x="62" y="137">输入</text>
+  <text class="small" x="62" y="165">晶体结构与元素</text>
+  <text class="small" x="62" y="189">候选磁构型</text>
+  <text class="small" x="62" y="213">精度与近似设置</text>
+  <rect class="engine" x="361" y="105" width="245" height="128"/>
+  <text class="head" x="404" y="141">自洽计算循环</text>
+  <text class="small" x="387" y="174">更新电子密度 → 解方程</text>
+  <text class="small" x="397" y="202">直到变化足够小</text>
+  <rect class="box" x="710" y="105" width="248" height="128"/>
+  <text class="head" x="734" y="137">输出与判断</text>
+  <text class="small" x="734" y="165">总能量 / 力 / 磁矩</text>
+  <text class="small" x="734" y="189">能带 / DOS</text>
+  <text class="small" x="734" y="213">比较候选并找风险</text>
+  <line class="arrow" x1="258" y1="170" x2="352" y2="170"/><line class="arrow" x1="608" y1="170" x2="701" y2="170"/>
+  <text class="head" x="52" y="290">一张最重要的检查图：能量差是否收敛</text>
+  <line class="axis" x1="95" y1="490" x2="908" y2="490"/><line class="axis" x1="95" y1="490" x2="95" y2="327"/>
+  <text class="small" x="410" y="524">计算精度增加，例如 ENCUT 或 k 点更密</text>
+  <text class="small" transform="rotate(-90 55 430)" x="55" y="430">两个磁构型能量差 ΔE</text>
+  <line class="target" x1="100" y1="397" x2="900" y2="397"/>
+  <path class="curve" d="M118 354 L226 442 L336 370 L449 412 L566 390 L680 400 L797 396 L887 397"/>
+  <text class="small" x="118" y="340">前段乱跳：不能下结论</text>
+  <text class="small" x="640" y="371">后段稳定：才可讨论排序</text>
+  <text class="small" x="100" y="557">即使数值稳定，也仍要比较不同方法与实验；“算稳了”不等于“真实材料已证明”。</text>
+</svg>
