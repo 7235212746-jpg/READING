@@ -1,0 +1,34 @@
+name: Verify published formula rendering
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "physics/**/*.md"
+      - "calculation/**/*.md"
+      - "methods/**/*.md"
+      - "_layouts/**/*.html"
+      - "scripts/verify_published_math.mjs"
+      - ".github/workflows/verify-published-math.yml"
+  workflow_dispatch:
+
+jobs:
+  rendered-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare browser checker
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save playwright@1.60.0
+      - run: npx playwright install --with-deps chromium
+
+      - name: Verify the published pages after deployment has time to refresh
+        run: |
+          sleep 45
+          node scripts/verify_published_math.mjs
