@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 570" role="img" aria-labelledby="title desc">
+  <title id="title">磁性材料核磁共振过程与谱图阅读示意</title>
+  <desc id="desc">上半部分显示磁场、线圈、样品、射频脉冲和记录信号的流程，下半部分比较较窄本征信号与缺陷造成的额外宽化或肩峰。</desc>
+  <style>
+    text { font-family: Arial, 'Noto Sans SC', sans-serif; fill:#18273d; }
+    .title { font-size:24px; font-weight:700; }
+    .head { font-size:18px; font-weight:700; }
+    .small { font-size:15px; fill:#53657a; }
+    .box { fill:#f8fafc; stroke:#cfdae7; stroke-width:2; rx:12; }
+    .magnet { fill:#edf4ff; stroke:#2e65ae; stroke-width:2; }
+    .coil { fill:none; stroke:#d47722; stroke-width:4; }
+    .arrow { stroke:#2e65ae; stroke-width:3; marker-end:url(#a); }
+    .axis { stroke:#26364d; stroke-width:2; }
+    .intrinsic { fill:none; stroke:#1664ba; stroke-width:4; }
+    .defect { fill:none; stroke:#db6e28; stroke-width:4; }
+  </style>
+  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2e65ae"/></marker></defs>
+  <rect width="980" height="570" fill="#fff"/>
+  <text class="title" x="36" y="40">NMR 在磁性材料里做什么？</text>
+  <text class="small" x="36" y="66">教学示意：真实论文会指定核种、磁场方向、频率、温度与数据处理。</text>
+  <rect class="magnet" x="48" y="112" width="226" height="120" rx="12"/>
+  <text class="head" x="71" y="143">强外磁场</text>
+  <text class="small" x="71" y="171">让可测核自旋有</text>
+  <text class="small" x="71" y="194">可比较的共振条件</text>
+  <rect class="box" x="350" y="102" width="238" height="140"/>
+  <path class="coil" d="M390 155 q20 -28 40 0 t40 0 t40 0"/>
+  <rect x="434" y="169" width="67" height="36" fill="#d9efe9" stroke="#087c69"/>
+  <text class="small" x="439" y="193">样品</text>
+  <text class="head" x="368" y="130">线圈 + 样品</text>
+  <text class="small" x="370" y="224">发送脉冲，也接收回声</text>
+  <rect class="box" x="672" y="112" width="248" height="120"/>
+  <text class="head" x="696" y="143">电脑得到谱和时间</text>
+  <text class="small" x="696" y="171">位置/位移：局部磁环境</text>
+  <text class="small" x="696" y="194">弛豫率：波动有多快</text>
+  <line class="arrow" x1="275" y1="171" x2="342" y2="171"/>
+  <line class="arrow" x1="590" y1="171" x2="664" y2="171"/>
+  <text class="head" x="54" y="298">怎样读一张简化谱图</text>
+  <line class="axis" x1="80" y1="477" x2="877" y2="477"/>
+  <line class="axis" x1="80" y1="477" x2="80" y2="335"/>
+  <text class="small" x="400" y="507">共振位置 / frequency shift</text>
+  <text class="small" transform="rotate(-90 45 430)" x="45" y="430">信号强度</text>
+  <path class="intrinsic" d="M155 476 C225 475 259 463 282 355 C303 463 340 475 418 476"/>
+  <path class="defect" d="M485 476 C534 475 563 459 586 384 C609 457 637 470 670 474 C694 466 706 429 723 409 C742 430 754 470 826 476"/>
+  <text class="small" x="162" y="327" fill="#1664ba">较单一局部环境：窄峰示意</text>
+  <text class="small" x="492" y="327" fill="#db6e28">缺陷/混占风险：宽化或额外成分示意</text>
+  <text class="small" x="80" y="545">不能只看“峰变宽”就下结论：还要检查核种归属、温度变化、拟合方式和其他测量。</text>
+</svg>
