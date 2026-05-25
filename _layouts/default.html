@@ -7,16 +7,17 @@
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
     <script>
-      function normalizeLegacyInlineMath() {
-        // Earlier notes used $$...$$ in running text. Convert short occurrences
-        // before MathJax scans the document; standalone $$ equations stay display math.
+      function normalizePublishedMathInput() {
         const elements = document.querySelectorAll('.article-body p, .article-body li, .article-body h1, .article-body h2, .article-body h3');
         elements.forEach((element) => {
           const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
           let node;
           while ((node = walker.nextNode())) {
             if (node.parentElement && node.parentElement.closest('code, pre, script, style')) continue;
-            node.nodeValue = node.nodeValue.replace(/\$\$([^$\n]+?)\$\$/g, '\\($1\\)');
+            node.nodeValue = node.nodeValue
+              .replace(/\\\\\(([^$\n]+?)\\\\\)/g, (_, math) => '\\(' + math.replace(/\\\\/g, '\\') + '\\)')
+              .replace(/\\\\\[([\s\S]+?)\\\\\]/g, (_, math) => '\\[' + math.replace(/\\\\/g, '\\') + '\\]')
+              .replace(/\$\$([^$\n]+?)\$\$/g, '\\($1\\)');
           }
         });
       }
@@ -28,7 +29,7 @@
         },
         startup: {
           ready: () => {
-            normalizeLegacyInlineMath();
+            normalizePublishedMathInput();
             MathJax.startup.defaultReady();
           }
         }
