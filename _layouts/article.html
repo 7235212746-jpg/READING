@@ -12,11 +12,11 @@ layout: default
     <p class="article-summary">{{ page.summary }}</p>
   </header>
   <div class="article-body">
-    {% unless page.permalink == '/methods/neutron-scattering-zero-start/' %}
+    {% unless page.permalink contains '/methods/' %}
     <blockquote>
-      <strong>第一次遇到实验名词？</strong><br>
-      如果你还不知道中子散射的仪器、过程和结果图是什么，请先读
-      <a href="{{ '/methods/neutron-scattering-zero-start/' | relative_url }}">零基础中子散射入口</a>，再回来读涉及磁性实验的结论。
+      <strong>第一次遇到仪器、结果图或计算名词？</strong><br>
+      如果你还不知道方法在测什么、图的坐标是什么，请先打开
+      <a href="{{ '/methods/' | relative_url }}">零基础实验工具入口</a>，再回来读结论。目前已有中子散射与 NMR 的图解入口。
     </blockquote>
     {% endunless %}
     {{ content }}
