@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="title desc">
+  <title id="title">非弹性中子散射仪器路径教学简图</title>
+  <desc id="desc">中子源发出中子，经过能量选择和导引后照射低温样品，散射中子由探测器记录，电脑整理为动量和能量图。</desc>
+  <style>
+    text { font-family: Arial, 'Noto Sans SC', sans-serif; fill:#16243a; }
+    .title { font-size:25px; font-weight:700; }
+    .small { font-size:15px; fill:#516174; }
+    .label { font-size:18px; font-weight:700; }
+    .box { fill:#ffffff; stroke:#315d9b; stroke-width:2; rx:14; }
+    .sample { fill:#edf6ff; stroke:#1769aa; stroke-width:3; }
+    .detector { fill:#f1faf2; stroke:#2e7d4b; stroke-width:2; }
+    .beam { stroke:#e68a27; stroke-width:5; marker-end:url(#arrow); }
+    .scatter { stroke:#2e7d4b; stroke-width:4; marker-end:url(#arrowGreen); }
+    .panel { fill:#f7f9fc; stroke:#d5deea; stroke-width:2; rx:18; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#e68a27"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2e7d4b"/></marker>
+  </defs>
+  <rect class="panel" x="16" y="18" width="928" height="372"/>
+  <text class="title" x="42" y="57">中子怎么变成一张可读的实验图？</text>
+  <text class="small" x="42" y="84">教学简图：实际设施可能使用飞行时间谱仪或三轴谱仪，零件布置会不同。</text>
+  <rect class="box" x="45" y="155" width="142" height="86"/>
+  <text class="label" x="68" y="190">中子源</text>
+  <text class="small" x="58" y="217">提供入射中子</text>
+  <rect class="box" x="247" y="144" width="168" height="108"/>
+  <text class="label" x="265" y="180">能量选择/导引</text>
+  <text class="small" x="262" y="207">知道入射能量</text>
+  <text class="small" x="262" y="228">和方向</text>
+  <rect class="sample" x="481" y="153" width="142" height="90" rx="14"/>
+  <text class="label" x="503" y="187">低温样品</text>
+  <text class="small" x="495" y="215">自旋吸收/释放</text>
+  <text class="small" x="527" y="234">能量</text>
+  <rect class="detector" x="731" y="126" width="164" height="145" rx="14"/>
+  <text class="label" x="767" y="163">探测器</text>
+  <text class="small" x="747" y="191">记录散射方向</text>
+  <text class="small" x="747" y="214">和到达时间</text>
+  <text class="small" x="747" y="237">→ Q 与能量</text>
+  <line class="beam" x1="187" y1="198" x2="242" y2="198"/>
+  <line class="beam" x1="416" y1="198" x2="476" y2="198"/>
+  <line class="scatter" x1="623" y1="186" x2="726" y2="158"/>
+  <line class="scatter" x1="623" y1="210" x2="726" y2="238"/>
+  <text class="small" x="48" y="322">问题：样品里的自旋激发是清晰波峰，还是分散成宽广连续信号？</text>
+  <text class="small" x="48" y="350">输出：强度图 S(Q, 能量转移)，不是“直接拍到自旋”的照片。</text>
+</svg>
