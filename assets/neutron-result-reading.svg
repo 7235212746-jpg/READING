@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">非弹性中子散射结果图如何阅读</title>
+  <desc id="desc">左侧展示清晰的集体激发带，右侧展示较宽的连续强度区域，并说明结果需要结合缺陷和其他测量谨慎解读。</desc>
+  <style>
+    text { font-family: Arial, 'Noto Sans SC', sans-serif; fill:#18273d; }
+    .title { font-size:24px; font-weight:700; }
+    .sub { font-size:15px; fill:#53657a; }
+    .head { font-size:18px; font-weight:700; }
+    .axis { stroke:#253752; stroke-width:2; }
+    .grid { stroke:#e2e8f0; stroke-width:1; }
+    .sharp { fill:none; stroke:#1565c0; stroke-width:8; opacity:.88; }
+    .broad { fill:#ef7c36; opacity:.16; }
+    .broad2 { fill:#ef7c36; opacity:.25; }
+    .note { fill:#f7f9fc; stroke:#d5deea; stroke-width:2; rx:12; }
+  </style>
+  <rect width="980" height="500" fill="#ffffff"/>
+  <text class="title" x="36" y="40">结果图入门：先看坐标，再问亮带代表什么</text>
+  <text class="sub" x="36" y="66">教学示意，不是任何论文的真实数据；真实结论必须阅读原图、误差和缺陷分析。</text>
+  <text class="head" x="104" y="106">较清晰的集体激发（示意）</text>
+  <text class="head" x="545" y="106">宽广连续信号（示意）</text>
+  <line class="axis" x1="75" y1="335" x2="430" y2="335"/><line class="axis" x1="75" y1="335" x2="75" y2="135"/>
+  <line class="grid" x1="75" y1="270" x2="430" y2="270"/><line class="grid" x1="75" y1="205" x2="430" y2="205"/>
+  <text class="sub" x="171" y="363">动量转移 Q</text><text class="sub" transform="rotate(-90 47 270)" x="47" y="270">能量转移</text>
+  <path class="sharp" d="M90 301 Q160 218 235 184 T414 238"/>
+  <text class="sub" x="104" y="393">亮而窄的轨迹：可能对应</text><text class="sub" x="104" y="416">较清晰的 magnon（磁振子）模式</text>
+  <line class="axis" x1="523" y1="335" x2="878" y2="335"/><line class="axis" x1="523" y1="335" x2="523" y2="135"/>
+  <line class="grid" x1="523" y1="270" x2="878" y2="270"/><line class="grid" x1="523" y1="205" x2="878" y2="205"/>
+  <text class="sub" x="619" y="363">动量转移 Q</text><text class="sub" transform="rotate(-90 495 270)" x="495" y="270">能量转移</text>
+  <path class="broad" d="M545 300 C590 205 655 175 720 190 C780 204 823 240 855 278 L855 322 L545 322 Z"/>
+  <path class="broad2" d="M555 285 C615 230 670 215 725 224 C775 231 820 258 845 289 L845 310 L555 310 Z"/>
+  <text class="sub" x="548" y="393">宽、连续的强度：可能支持分数化</text><text class="sub" x="548" y="416">激发，但不能单独证明自旋液体</text>
+  <rect class="note" x="42" y="450" width="896" height="35"/>
+  <text class="sub" x="60" y="474">必须再问：背景是否扣除？杂质自旋会不会制造低能信号？温度和其他实验是否一致？</text>
+</svg>
