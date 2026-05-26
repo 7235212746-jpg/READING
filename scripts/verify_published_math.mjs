@@ -45,10 +45,20 @@ function inspectionFunction({ url, expectsMath, file, requiresRenderedMath }) {
   return { file, url, formulas, fallbackCount, problems };
 }
 
+async function waitForExpectedState(page, item, requiresRenderedMath) {
+  if (!item.expectsMath) return;
+  const selector = requiresRenderedMath ? 'mjx-container' : '.math-render-fallback';
+  try {
+    await page.waitForSelector(selector, { timeout: requiresRenderedMath ? 10000 : 2000 });
+  } catch {
+    // Inspection below reports the missing state; retries allow a delayed deploy to settle.
+  }
+}
+
 async function checkPage(page, item, requiresRenderedMath) {
   const url = `${siteBase}${item.route}?published-math-check=${Date.now()}-${requiresRenderedMath ? 'rendered' : 'fallback'}`;
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-  await page.waitForTimeout(2500);
+  await waitForExpectedState(page, item, requiresRenderedMath);
   return page.evaluate(inspectionFunction, {
     url,
     expectsMath: item.expectsMath,
