@@ -6,20 +6,98 @@
     <meta name="theme-color" content="#f5f7f3">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+    <style>
+      .math-render-source {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+      .math-render-fallback {
+        font-family: "Cambria Math", "Times New Roman", serif;
+      }
+      .math-display-fallback {
+        display: block;
+        margin: 20px 0;
+        padding: 12px 8px;
+        text-align: center;
+        background: #ffffff;
+        border: 1px solid #d5ddd7;
+        border-radius: 6px;
+      }
+      .math-ready .math-render-source {
+        position: static !important;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
+        white-space: normal;
+      }
+      .math-ready .math-render-fallback {
+        display: none;
+      }
+    </style>
     <script>
-      function normalizePublishedMathInput() {
-        const elements = document.querySelectorAll('.article-body p, .article-body li, .article-body h1, .article-body h2, .article-body h3');
-        elements.forEach((element) => {
-          const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      function readableMathText(math) {
+        return math
+          .replace(/\\\\/g, '\\')
+          .replace(/\\sqrt\{([^{}]+)\}/g, '√($1)')
+          .replace(/\\times/g, '×')
+          .replace(/\^\{?\\circ\}?/g, '°')
+          .replace(/\\mu/g, 'μ')
+          .replace(/\\mathrm\{([^{}]+)\}/g, '$1')
+          .replace(/\\mathbf\{([^{}]+)\}/g, '$1')
+          .replace(/\\cdot/g, '·')
+          .replace(/\\langle/g, '〈')
+          .replace(/\\rangle/g, '〉')
+          .replace(/\\sum/g, 'Σ')
+          .replace(/[{}]/g, '')
+          .replace(/\\/g, '');
+      }
+      function appendMathPair(fragment, math, display) {
+        const normalized = math.replace(/\\\\/g, '\\');
+        const source = document.createElement(display ? 'div' : 'span');
+        source.className = 'math-render-source';
+        source.textContent = (display ? '\\[' : '\\(') + normalized + (display ? '\\]' : '\\)');
+        const fallback = document.createElement(display ? 'div' : 'span');
+        fallback.className = 'math-render-fallback' + (display ? ' math-display-fallback' : '');
+        fallback.textContent = readableMathText(math);
+        fragment.appendChild(source);
+        fragment.appendChild(fallback);
+      }
+      function stagePublishedMath() {
+        if (document.documentElement.classList.contains('math-staged')) return;
+        const roots = document.querySelectorAll('.article-body');
+        const pattern = /\\\\\(([^$\n]+?)\\\\\)|\\\(([^$\n]+?)\\\)|\\\\\[([\s\S]+?)\\\\\]|\\\[([\s\S]+?)\\\]|\$\$([^$\n]+?)\$\$/g;
+        roots.forEach((root) => {
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+          const nodes = [];
           let node;
           while ((node = walker.nextNode())) {
-            if (node.parentElement && node.parentElement.closest('code, pre, script, style')) continue;
-            node.nodeValue = node.nodeValue
-              .replace(/\\\\\(([^$\n]+?)\\\\\)/g, (_, math) => '\\(' + math.replace(/\\\\/g, '\\') + '\\)')
-              .replace(/\\\\\[([\s\S]+?)\\\\\]/g, (_, math) => '\\[' + math.replace(/\\\\/g, '\\') + '\\]')
-              .replace(/\$\$([^$\n]+?)\$\$/g, '\\($1\\)');
+            if (node.parentElement && node.parentElement.closest('code, pre, script, style, .math-render-source, .math-render-fallback')) continue;
+            if (pattern.test(node.nodeValue)) nodes.push(node);
+            pattern.lastIndex = 0;
           }
+          nodes.forEach((textNode) => {
+            const fragment = document.createDocumentFragment();
+            const text = textNode.nodeValue;
+            let last = 0;
+            let match;
+            pattern.lastIndex = 0;
+            while ((match = pattern.exec(text))) {
+              fragment.appendChild(document.createTextNode(text.slice(last, match.index)));
+              const math = match[1] || match[2] || match[3] || match[4] || match[5];
+              const display = Boolean(match[3] || match[4]);
+              appendMathPair(fragment, math, display);
+              last = pattern.lastIndex;
+            }
+            fragment.appendChild(document.createTextNode(text.slice(last)));
+            textNode.parentNode.replaceChild(fragment, textNode);
+          });
         });
+        document.documentElement.classList.add('math-staged');
       }
       window.MathJax = {
         tex: {
@@ -29,9 +107,12 @@
         },
         startup: {
           ready: () => {
-            normalizePublishedMathInput();
+            stagePublishedMath();
             MathJax.startup.defaultReady();
-          }
+          },
+          pageReady: () => MathJax.startup.defaultPageReady().then(() => {
+            document.documentElement.classList.add('math-ready');
+          })
         }
       };
     </script>
@@ -55,6 +136,7 @@
     <main class="page">
       {{ content }}
     </main>
+    <script>stagePublishedMath();</script>
     <footer class="footer">
       <p>公开学习笔记。结论请回到原论文、补充材料与实验记录核查。</p>
     </footer>
