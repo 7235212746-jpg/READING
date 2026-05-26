@@ -6,133 +6,50 @@ title: 公开阅读站
   <div>
     <p class="eyebrow">Kagome / Frustration / First Principles</p>
     <h1>每日材料物理精读</h1>
-    <p class="lead">从三角形反铁磁的第一条直觉开始，逐步学会读论文、拆数据、判断合成路线和验证计算结论。</p>
+    <p class="lead">从完全不了解仪器和计算开始：先看过程与结果图，再判断论文的证据到底支持到哪里。</p>
     <div class="chips" aria-label="学习标签">
-      <span class="chip">可公开阅读</span>
-      <span class="chip">手机友好</span>
-      <span class="chip">证据优先</span>
-      <span class="chip">中英日术语</span>
+      <span class="chip">零基础入口</span><span class="chip">手机友好</span><span class="chip">证据优先</span><span class="chip">中英日术语</span>
     </div>
   </div>
   <aside class="skill-map" id="path" aria-label="当前知识路径">
     <h2>当前技能路径</h2>
-    <div class="node">晶格与自旋：反铁磁相互作用</div>
-    <div class="connector" aria-hidden="true"></div>
-    <div class="node">已点亮：三角形几何挫折与 Heisenberg 模型</div>
-    <div class="connector" aria-hidden="true"></div>
-    <div class="node">已点亮：磁构型、QSL 证据与样品缺陷</div>
-    <div class="connector" aria-hidden="true"></div>
-    <div class="node node-now">下一步：Kagome 能带、CDW 与超导</div>
+    <div class="node">几何挫折与 Heisenberg 模型</div><div class="connector" aria-hidden="true"></div>
+    <div class="node">真实样品：缺陷、NMR 与 μSR</div><div class="connector" aria-hidden="true"></div>
+    <div class="node node-now">现在：会读仪器图与微小能量差收敛图</div>
   </aside>
 </section>
-
 <section aria-labelledby="latest-title">
-  <div class="section-head">
-    <h2 id="latest-title">2026-05-21 首次阅读</h2>
-    <p>两条主线并行推进</p>
-  </div>
+  <div class="section-head"><h2 id="latest-title">2026-05-26 今日阅读</h2><p>先解决“看不懂实验和结果图”的障碍</p></div>
   <div class="article-list">
     <article class="reading-card physics">
-      <p class="card-label">物理主线 | 入门</p>
-      <h3>为什么三角形反铁磁会产生几何挫折</h3>
-      <p>从一个无法让三条边都满意的三角形出发，连接 Kagome 格子、样品验证、数据推理与合成设备盘点。</p>
-      <a class="read-link" href="{{ '/physics/2026-05-21-geometric-frustration/' | relative_url }}">开始阅读 -></a>
+      <p class="card-label">物理主线 | 入门/进阶</p>
+      <h3>自旋没有冻住是什么意思：μSR 与 herbertsmithite</h3>
+      <p>认识缪子束线、低温样品、正电子探测器与时间曲线，再读论文为何报告降到 50 mK 仍未见磁冻结转变。</p>
+      <a class="read-link" href="{{ '/physics/2026-05-26-musr-spin-freezing/' | relative_url }}">开始阅读 -></a>
     </article>
     <article class="reading-card compute">
-      <p class="card-label">计算主线 | 入门</p>
-      <h3>磁性材料第一性原理：先枚举磁构型</h3>
-      <p>理解为什么一个默认计算不足以证明磁性基态，并学会追踪输入、输出、收敛与实验核验链条。</p>
-      <a class="read-link" href="{{ '/calculation/2026-05-21-magnetic-dft-first-checklist/' | relative_url }}">开始阅读 -></a>
+      <p class="card-label">计算主线 | 入门/进阶</p>
+      <h3>小到看不见的能量差可信吗：SOC 收敛图</h3>
+      <p>用一张示意收敛图理解为什么程序打印出微电子伏特差值，并不等于易轴结论已经可信。</p>
+      <a class="read-link" href="{{ '/calculation/2026-05-26-mae-convergence/' | relative_url }}">开始阅读 -></a>
     </article>
   </div>
 </section>
-
-<section aria-labelledby="course-title">
-  <div class="section-head">
-    <h2 id="course-title">连续课程：2026-05-22 至 05-25</h2>
-    <p>由模型走向实验和可靠计算</p>
-  </div>
-  <div class="article-list">
-    <article class="reading-card physics">
-      <p class="card-label">05-22 | 物理主线 | 入门</p>
-      <h3>把挫折写成能量：Heisenberg 模型</h3>
-      <p>理解交换常数、120 度结构，以及实验如何尝试反推出模型尺度。</p>
-      <a class="read-link" href="{{ '/physics/2026-05-22-heisenberg-model/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card compute">
-      <p class="card-label">05-22 | 计算主线 | 入门/进阶</p>
-      <h3>Kagome 磁构型枚举方案</h3>
-      <p>把 FM、AFM 与非共线候选变成可核查的能量比较任务。</p>
-      <a class="read-link" href="{{ '/calculation/2026-05-22-kagome-magnetic-configurations/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card physics">
-      <p class="card-label">05-23 | 物理主线 | 入门/进阶</p>
-      <h3>\(q=0\) 与 \(\sqrt{3}\times\sqrt{3}\)</h3>
-      <p>局部都满足 120 度时，为什么全局仍有不同磁性周期。</p>
-      <a class="read-link" href="{{ '/physics/2026-05-23-kagome-magnetic-orders/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card compute">
-      <p class="card-label">05-23 | 计算主线 | 入门</p>
-      <h3>ENCUT 与 k 点收敛曲线</h3>
-      <p>学习识别磁态小能量差到底是物理还是数值误差。</p>
-      <a class="read-link" href="{{ '/calculation/2026-05-23-convergence-curves/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card physics">
-      <p class="card-label">05-24 | 物理主线 | 进阶</p>
-      <h3>中子散射怎样支持量子自旋液体</h3>
-      <p>从 herbertsmithite 的连续激发读到低能缺陷修正。</p>
-      <a class="read-link" href="{{ '/physics/2026-05-24-quantum-spin-liquid-evidence/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card compute">
-      <p class="card-label">05-24 | 计算主线 | 进阶</p>
-      <h3>DFT+U：U 不是调味料</h3>
-      <p>追踪 U 的来源、参数敏感性和能量/磁矩结论边界。</p>
-      <a class="read-link" href="{{ '/calculation/2026-05-24-dft-plus-u/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card physics">
-      <p class="card-label">05-25 | 物理主线 | 进阶</p>
-      <h3>herbertsmithite 合成、混占与 NMR</h3>
-      <p>完整查看合成逻辑、表征仪器和本征/缺陷磁信号的拆分。</p>
-      <a class="read-link" href="{{ '/physics/2026-05-25-herbertsmithite-synthesis-nmr/' | relative_url }}">开始阅读 -></a>
-    </article>
-    <article class="reading-card compute">
-      <p class="card-label">05-25 | 计算主线 | 进阶</p>
-      <h3>SOC 与非共线可信度</h3>
-      <p>理解微小各向异性能量为何需要非常严格的收敛验证。</p>
-      <a class="read-link" href="{{ '/calculation/2026-05-25-soc-noncollinear/' | relative_url }}">开始阅读 -></a>
-    </article>
-  </div>
-</section>
-
-<section aria-labelledby="method-title">
-  <div class="section-head">
-    <h2 id="method-title">这套阅读方式</h2>
-  </div>
-  <div class="principles">
-    <div class="principle">
-      <strong>数据走到结论</strong>
-      <p>追踪原始观测量、处理步骤、图表证据和结论边界。</p>
-    </div>
-    <div class="principle">
-      <strong>合成要能落地</strong>
-      <p>理解温度和时间逻辑，也盘点实验室需要具备的设备。</p>
-    </div>
-    <div class="principle">
-      <strong>计算要可验证</strong>
-      <p>检查参数、收敛、候选态和与真实样品的交叉验证。</p>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="guide-title">
-  <div class="section-head">
-    <h2 id="guide-title">复用这套系统</h2>
-    <p>换一个学科也能开始</p>
-  </div>
+<section aria-labelledby="tools-title">
+  <div class="section-head"><h2 id="tools-title">先补工具，再读论文</h2><p>不知道术语也可以开始</p></div>
   <article class="reading-card physics">
-    <p class="card-label">指令手册 | 可迁移模板</p>
-    <h3>把精读网站搬到考古学或其他方向</h3>
-    <p>将手册和专业方向需求卡交给新的 Codex，即可重新建立证据链、方法设备、知识路线与手机公开网页。</p>
-    <a class="read-link" href="{{ '/guide/portable-reading-system-playbook/' | relative_url }}">打开手册 -></a>
+    <p class="card-label">零基础工具箱</p>
+    <h3>仪器、公式和计算从哪里入门</h3>
+    <p>已提供 Heisenberg 公式、中子散射、NMR、μSR 和 DFT 入口页，每页先解释路径和第一张图怎么读。</p>
+    <a class="read-link" href="{{ '/methods/' | relative_url }}">打开工具箱 -></a>
   </article>
+</section>
+<section aria-labelledby="archive-title">
+  <div class="section-head"><h2 id="archive-title">此前课程：2026-05-21 至 05-25</h2><p>按路线继续补基础</p></div>
+  <div class="article-list">
+    <article class="reading-card physics"><p class="card-label">05-21 至 05-22 | 物理</p><h3>几何挫折与 Heisenberg 模型</h3><p>从三角形矛盾进入 Kagome 磁性模型。</p><a class="read-link" href="{{ '/physics/2026-05-22-heisenberg-model/' | relative_url }}">阅读 -></a></article>
+    <article class="reading-card physics"><p class="card-label">05-23 至 05-25 | 物理</p><h3>磁构型、QSL 证据与 herbertsmithite</h3><p>进入真实样品、缺陷与 NMR 证据。</p><a class="read-link" href="{{ '/physics/2026-05-25-herbertsmithite-synthesis-nmr/' | relative_url }}">阅读 -></a></article>
+    <article class="reading-card compute"><p class="card-label">05-21 至 05-23 | 计算</p><h3>磁性 DFT 与收敛曲线</h3><p>学习候选磁结构与基本数值可信度。</p><a class="read-link" href="{{ '/calculation/2026-05-23-convergence-curves/' | relative_url }}">阅读 -></a></article>
+    <article class="reading-card compute"><p class="card-label">05-24 至 05-25 | 计算</p><h3>DFT+U、SOC 与非共线磁性</h3><p>在参数敏感问题上守住结论边界。</p><a class="read-link" href="{{ '/calculation/2026-05-25-soc-noncollinear/' | relative_url }}">阅读 -></a></article>
+  </div>
 </section>
