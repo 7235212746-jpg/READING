@@ -47,7 +47,7 @@ function inspectionFunction({ url, expectsMath, file, requiresRenderedMath }) {
 
 async function checkPage(page, item, requiresRenderedMath) {
   const url = `${siteBase}${item.route}?published-math-check=${Date.now()}-${requiresRenderedMath ? 'rendered' : 'fallback'}`;
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForTimeout(2500);
   return page.evaluate(inspectionFunction, {
     url,
