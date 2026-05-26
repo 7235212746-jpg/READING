@@ -26,52 +26,69 @@ function publishablePages() {
   });
 }
 
-async function checkPage(page, item) {
-  const url = `${siteBase}${item.route}?published-math-check=${Date.now()}`;
+function inspectionFunction({ url, expectsMath, file, requiresRenderedMath }) {
+  const content = document.querySelector('.article-body') || document.querySelector('main') || document.body;
+  const visibleCopy = content.cloneNode(true);
+  visibleCopy.querySelectorAll('.math-render-source').forEach((element) => element.remove());
+  const visibleText = visibleCopy.textContent || '';
+  const formulas = content.querySelectorAll('mjx-container').length;
+  const fallbackCount = content.querySelectorAll('.math-render-fallback').length;
+  const rawDollars = visibleText.includes('$$');
+  const rawCommands = /\\(?:sqrt|circ|Delta|sum|mathbf|langle|mathrm|times|mu)/.test(visibleText);
+  const rawBoundaries = visibleText.includes('\\(') || visibleText.includes('\\[');
+  const problems = [];
+  if (rawDollars) problems.push('literal $$ remains visible');
+  if (rawCommands) problems.push('raw LaTeX command remains visible');
+  if (rawBoundaries) problems.push('raw formula boundary remains visible');
+  if (expectsMath && requiresRenderedMath && formulas === 0) problems.push('source contains math but page rendered no formula');
+  if (expectsMath && !requiresRenderedMath && fallbackCount === 0) problems.push('MathJax failure exposes no readable fallback');
+  return { file, url, formulas, fallbackCount, problems };
+}
+
+async function checkPage(page, item, requiresRenderedMath) {
+  const url = `${siteBase}${item.route}?published-math-check=${Date.now()}-${requiresRenderedMath ? 'rendered' : 'fallback'}`;
   await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
   await page.waitForTimeout(2500);
-  return page.evaluate(({ url, expectsMath, file }) => {
-    const content = document.querySelector('.article-body') || document.querySelector('main') || document.body;
-    const text = content.innerText || '';
-    const formulas = content.querySelectorAll('mjx-container').length;
-    const rawDollars = text.includes('$$');
-    const rawCommands = /\\(?:sqrt|circ|Delta|sum|mathbf|langle|mathrm)/.test(text);
-    const rawBoundaries = text.includes('\\(') || text.includes('\\[');
-    const problems = [];
-    if (rawDollars) problems.push('literal $$ remains visible');
-    if (rawCommands) problems.push('raw LaTeX command remains visible');
-    if (rawBoundaries) problems.push('raw formula boundary remains visible');
-    if (expectsMath && formulas === 0) problems.push('source contains math but page rendered no formula');
-    return { file, url, formulas, problems };
-  }, { url, expectsMath: item.expectsMath, file: item.file });
+  return page.evaluate(inspectionFunction, {
+    url,
+    expectsMath: item.expectsMath,
+    file: item.file,
+    requiresRenderedMath
+  });
 }
 
 const pages = publishablePages();
 if (!pages.length) throw new Error('No publishable pages found for formula verification.');
 
 const launchOptions = { headless: true };
-if (process.env.BROWSER_EXECUTABLE_PATH) {
-  launchOptions.executablePath = process.env.BROWSER_EXECUTABLE_PATH;
-}
+if (process.env.BROWSER_EXECUTABLE_PATH) launchOptions.executablePath = process.env.BROWSER_EXECUTABLE_PATH;
 const browser = await chromium.launch(launchOptions);
-const tab = await browser.newPage();
-let results = [];
+const renderedTab = await browser.newPage();
+const fallbackTab = await browser.newPage();
+await fallbackTab.route('**/tex-mml-chtml.js', (route) => route.abort());
+let renderedResults = [];
+let fallbackResults = [];
 try {
   for (let attempt = 1; attempt <= 4; attempt += 1) {
-    results = [];
-    for (const item of pages) results.push(await checkPage(tab, item));
-    const failures = results.filter((item) => item.problems.length);
+    renderedResults = [];
+    fallbackResults = [];
+    for (const item of pages) {
+      renderedResults.push(await checkPage(renderedTab, item, true));
+      fallbackResults.push(await checkPage(fallbackTab, item, false));
+    }
+    const failures = [...renderedResults, ...fallbackResults].filter((item) => item.problems.length);
     if (!failures.length) break;
-    if (attempt < 4) await tab.waitForTimeout(30000);
+    if (attempt < 4) await renderedTab.waitForTimeout(30000);
   }
 } finally {
   await browser.close();
 }
 
-const failures = results.filter((item) => item.problems.length);
-for (const result of results) {
-  console.log(`${result.file}: ${result.formulas} rendered formula(s)${result.problems.length ? `; ${result.problems.join('; ')}` : ''}`);
+for (const result of renderedResults) {
+  console.log(`rendered ${result.file}: ${result.formulas} formula(s)${result.problems.length ? `; ${result.problems.join('; ')}` : ''}`);
 }
-if (failures.length) {
-  throw new Error(`Published formula verification failed for ${failures.length} page(s).`);
+for (const result of fallbackResults) {
+  console.log(`fallback ${result.file}: ${result.fallbackCount} readable substitute(s)${result.problems.length ? `; ${result.problems.join('; ')}` : ''}`);
 }
+const failures = [...renderedResults, ...fallbackResults].filter((item) => item.problems.length);
+if (failures.length) throw new Error(`Published formula verification failed for ${failures.length} page-state check(s).`);
