@@ -6,7 +6,7 @@ date: 2026-05-30
 difficulty: "零基础友好 / 论文阅读训练"
 summary: "以 Quantum-limit Chern topological magnetism in TbMn6Sn6 为例，练习从标题、摘要、引言、实验图、计算图、结论边界一步步读懂 Chern magnet 论文。"
 tags: [paper reading, TbMn6Sn6, Chern magnet, kagome]
-verification_status: "预生成稿：不复制长段原文；按公开论文信息和 DOI 做结构化解析；等待日期前最终复核。"
+verification_status: "预生成稿：已补术语解释块；不复制长段原文；按公开论文信息和 DOI 做结构化解析；等待日期前最终复核。"
 permalink: /paper-reading/2026-05-30-yin-tbmn6sn6-cern-magnet/
 ---
 
@@ -17,6 +17,17 @@ permalink: /paper-reading/2026-05-30-yin-tbmn6sn6-cern-magnet/
 今天练读这篇论文：J.-X. Yin 等人，"Quantum-limit Chern topological magnetism in TbMn6Sn6," Nature 583, 533-536 (2020). DOI: https://doi.org/10.1038/s41586-020-2482-7 [R1]
 
 这篇适合接在“Chern 数与边界态”后面读，因为它不是只讲抽象模型，而是把 Kagome 磁体、Dirac 能带、Landau 量子化、Chern gap、边界态和 Berry curvature 对应关系放在同一条证据链里 [R1]。
+
+## 术语随身解释
+
+| 术语 | 它是什么 | 为什么要用 | 读论文时怎么看 | 常见误解 |
+| --- | --- | --- | --- | --- |
+| Quantum limit | 强磁场下只剩很少几个 Landau 能级参与低能物理的极限 | 它让量子化能级和拓扑能隙更容易被分辨 | 看磁场范围、温度、Landau fan 编号和是否真的进入少数能级区间 | 不是只要用了强磁场就自动进入 quantum limit |
+| Chern magnet | 磁性和非零 Chern 拓扑能带结合的材料或状态 | 用来讨论磁序怎样把 Berry curvature、Chern gap 和边界态联系起来 | 看磁结构、能带开隙、Chern 数或边界态证据是否同时出现 | 不是所有磁性 Kagome 材料都是 Chern magnet |
+| Landau 量子化 | 磁场把电子连续轨道压成一组离散能级 | 用来从谱线或振荡中识别费米面、Dirac 电子和量子极限 | 看能级是否随磁场按规律移动，编号是否清楚 | 看到条纹不等于已经证明拓扑 |
+| Chern gap | 与非零 Chern 拓扑有关的能隙 | 若费米能级落在其中，可能支持边界通道 | 看能隙大小、位置、是否有边界态跨过它 | 有 gap 不等于一定是 Chern gap |
+| 体边对应 | 体能带拓扑决定边界态数目和方向的思想 | 用来把体内 Chern 数和边界通道连起来 | 看体能隙、Chern 诊断、边界谱是否匹配 | 边缘有态不等于一定来自体拓扑 |
+| Berry curvature | 能带波函数在动量空间中的几何量，可像 k 空间有效磁场 | 用来解释 Chern 数、AHE 和某些横向响应 | 看它集中在哪些 k 区域，是否靠近 EF，是否与实验相容 | 看到 Berry curvature 热点不等于机制已经完全证明 |
 
 ## 先不要直接啃正文
 
