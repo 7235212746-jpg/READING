@@ -6,7 +6,7 @@ date: 2026-05-29
 difficulty: "零基础友好 / 入门到进阶"
 summary: "把 Berry curvature、反常霍尔效应、Kagome 金属和论文图像之间的关系讲成可操作的读图方法。"
 references: ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12"]
-verification_status: "正文不使用需要渲染的数学公式；首次出现的核心术语配有用途、读图方法和误解提醒。"
+verification_status: "正文不使用需要渲染的数学公式；核心作者处加入默认折叠的作者与机构说明。"
 permalink: /physics/2026-05-29-berry-curvature-anomalous-hall/
 ---
 
@@ -63,7 +63,45 @@ Kagome 晶格由角共享三角形组成。它容易产生三类对输运很重�
 
 Co3Sn2S2 是一个经典例子。Liu 等人在 2018 年报告了磁性 Weyl 半金属 Co3Sn2S2 中巨大的反常 Hall 效应，并将其与能带拓扑联系起来 [R4]。Wang 等人同年从磁性 Weyl 半金属角度讨论了 Co3Sn2S2 的大反常 Hall 效应 [R5]。这些工作说明：Kagome 结构、磁性、自旋轨道耦合和费米能级附近的能带特征组合在一起时，可能显著放大横向输运响应。
 
-但这并不意味着所有 Kagome 材料一看到 AHE 就一定是同一种机制。Fe3Sn2、Mn3Sn、AV3Sb5 等体系的磁结构、维度、费米能级和实验探针都不同。Kida 等人研究 Fe3Sn2 时强调了磁性和输运之间的复杂关系 [R6]。Ye 等人在 Fe3Sn2 中报告了与 massive Dirac fermions 相关的 Berry curvature 证据 [R7]。Nakatsuji 等人在 Mn3Sn 中展示了反铁磁体也可以出现很大的反常 Hall 效应，说明“净磁化很小”并不自动排除 AHE [R8]。
+但这并不意味着所有 Kagome 材料一看到 AHE 就一定是同一种机制。Fe3Sn2、Mn3Sn、AV3Sb5 等体系的磁结构、维度、费米能级和实验探针都不同。
+
+Takanori Kida 等人研究 Fe3Sn2 这个 Kagome 双层铁磁金属，报告了室温下饱和 Hall 电阻约 3.2 μΩ cm，约为典型巡游铁磁金属 Fe 和 Ni 的 20 倍；他们还报告反常 Hall 系数在 300 K 下约为 6.7 × 10^-9 Ω cm G^-1，比纯 Fe 大三个数量级，并指出其与纵向电阻的标度关系不能用传统 skew 或 side-jump 机制解释 [R6]。
+
+<details>
+<summary>展开：Kida 等人 [R6] 的作者与机构</summary>
+
+作者名单按论文记录列出：Takanori Kida；L. A. Fenner；A. A. Dee；Ichiro Terasaki；Masayuki Hagiwara；A. S. Wills。
+
+机构按论文页面和数据库记录整理：
+
+- KYOKUGEN, Osaka University, Toyonaka, Osaka, Japan：Takanori Kida；Masayuki Hagiwara。
+- Department of Chemistry, University College London, London, United Kingdom：L. A. Fenner；A. A. Dee；A. S. Wills。
+- The London Centre for Nanotechnology, London, United Kingdom：A. S. Wills。
+- Department of Applied Physics, Waseda University, Tokyo, Japan：Ichiro Terasaki。
+
+阅读提示：这里的作者信息用于帮助你知道这项工作主要来自强磁场/输运测量团队与化学、材料合成团队的合作，不需要背人名。
+</details>
+
+这篇论文直接支持的说法是：Fe3Sn2 中存在异常大的反常 Hall 响应，而且普通外禀标度解释不足 [R6]。它没有单独完成今天意义上“Berry curvature 热点在哪里”的完整能带证明。后续 Linda Ye 和 Mingu Kang 等人在 Fe3Sn2 中用实验和理论讨论了 massive Dirac fermions，为 Fe3Sn2 的拓扑 Kagome 磁体图像提供了更直接的能带线索 [R7]。
+
+<details>
+<summary>展开：Ye 和 Kang 等人 [R7] 的作者与机构</summary>
+
+作者名单按 Nature 论文页面列出：Linda Ye；Mingu Kang；Junwei Liu；Felix von Cube；Christina R. Wicker；Takehito Suzuki；Chris Jozwiak；Aaron Bostwick；Eli Rotenberg；David C. Bell；Liang Fu；Riccardo Comin；Joseph G. Checkelsky。
+
+主要机构按 Nature 论文页面整理：
+
+- Department of Physics, Massachusetts Institute of Technology, Cambridge, Massachusetts, USA：Linda Ye；Mingu Kang；Junwei Liu；Christina R. Wicker；Takehito Suzuki；Liang Fu；Riccardo Comin；Joseph G. Checkelsky。
+- Harvard John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, Massachusetts, USA：Felix von Cube；David C. Bell。
+- Advanced Light Source, Lawrence Berkeley National Laboratory, Berkeley, California, USA：Chris Jozwiak；Aaron Bostwick；Eli Rotenberg。
+- Center for Nanoscale Systems, Harvard University, Cambridge, Massachusetts, USA：David C. Bell。
+
+论文页面还标注：Linda Ye 和 Mingu Kang 为共同第一作者；Junwei Liu 当时的现地址为 Hong Kong UST；Felix von Cube 当时的现地址为 Hitachi High-Technologies Europe GmbH。
+
+阅读提示：这篇工作的证据链包含晶体生长、输运与磁测量、ARPES、理论计算和电子显微表征，所以作者机构比单纯人名更能帮助你理解“哪些技术共同支撑了结论”。
+</details>
+
+新手读这里要避免一个误解：早期输运论文发现“异常大”并提出可能与挫折磁性有关，不等于所有后续机制细节都已经被实验定死。它是强线索，不是终点。Nakatsuji 等人在 Mn3Sn 中展示了反铁磁体也可以出现很大的反常 Hall 效应，说明“净磁化很小”并不自动排除 AHE [R8]。
 
 ## 一篇论文如果说“Berry curvature 导致 AHE”，你要检查四件事
 
@@ -103,9 +141,9 @@ Co3Sn2S2 是一个经典例子。Liu 等人在 2018 年报告了磁性 Weyl 半�
 
 [R5] Wang, Q. et al. Large intrinsic anomalous Hall effect in half-metallic ferromagnet Co3Sn2S2 with magnetic Weyl fermions. Nature Communications 9, 3681 (2018). https://doi.org/10.1038/s41467-018-06088-2
 
-[R6] Kida, T. et al. The giant anomalous Hall effect in the ferromagnet Fe3Sn2. Journal of Physics: Condensed Matter 23, 112205 (2011). https://doi.org/10.1088/0953-8984/23/11/112205
+[R6] Kida, T., Fenner, L. A., Dee, A. A., Terasaki, I., Hagiwara, M., and Wills, A. S. The giant anomalous Hall effect in the ferromagnet Fe3Sn2. Journal of Physics: Condensed Matter 23, 112205 (2011). https://doi.org/10.1088/0953-8984/23/11/112205
 
-[R7] Ye, L. et al. Massive Dirac fermions in a ferromagnetic kagome metal. Nature 555, 638-642 (2018). https://doi.org/10.1038/nature25987
+[R7] Ye, L., Kang, M., Liu, J., von Cube, F., Wicker, C. R., Suzuki, T., Jozwiak, C., Bostwick, A., Rotenberg, E., Bell, D. C., Fu, L., Comin, R., and Checkelsky, J. G. Massive Dirac fermions in a ferromagnetic kagome metal. Nature 555, 638-642 (2018). https://doi.org/10.1038/nature25987
 
 [R8] Nakatsuji, S., Kiyohara, N., and Higo, T. Large anomalous Hall effect in a non-collinear antiferromagnet at room temperature. Nature 527, 212-215 (2015). https://doi.org/10.1038/nature15723
 
