@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" role="img" aria-label="Kagome flat band Dirac point and van Hove teaching diagram">
+  <rect width="1100" height="700" fill="#ffffff"/>
+  <style>text{font-family:Arial,'Noto Sans SC',sans-serif;fill:#172033}.title{font-size:30px;font-weight:700}.label{font-size:20px;font-weight:700}.body{font-size:16px}.small{font-size:14px;fill:#45546b}.box{fill:#f5f7fb;stroke:#c9d3e6;stroke-width:2;rx:18}.warn{fill:#fff7ed;stroke:#f59e0b;stroke-width:2;rx:16}.axis{stroke:#26354d;stroke-width:2;marker-end:url(#arrow)}.band{stroke:#2563eb;stroke-width:4;fill:none}.band2{stroke:#059669;stroke-width:4;fill:none}.hot{fill:#fee2e2;stroke:#dc2626;stroke-width:2}</style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker></defs>
+  <text x="40" y="48" class="title">Kagome 三个能带特征：来源、图像、结论边界</text>
+
+  <rect x="40" y="85" width="320" height="215" class="box"/>
+  <text x="65" y="122" class="label">平带：来自干涉和局域化</text>
+  <line x1="85" y1="250" x2="315" y2="250" class="axis"/><line x1="85" y1="250" x2="85" y2="150" class="axis"/>
+  <path d="M100 185 L300 185" class="band"/>
+  <path d="M100 230 C155 165, 230 165, 300 230" class="band2"/>
+  <text x="90" y="276" class="small">能量几乎不随 k 变</text>
+  <text x="65" y="292" class="small">可提示高态密度；不能单独证明强关联相。</text>
+
+  <rect x="390" y="85" width="320" height="215" class="box"/>
+  <text x="415" y="122" class="label">Dirac 点：来自能带相遇</text>
+  <line x1="435" y1="250" x2="665" y2="250" class="axis"/><line x1="435" y1="250" x2="435" y2="150" class="axis"/>
+  <path d="M470 235 L620 165" class="band"/><path d="M470 165 L620 235" class="band2"/>
+  <circle cx="545" cy="200" r="10" class="hot"/>
+  <text x="450" y="276" class="small">交叉或小开隙附近常触发拓扑讨论</text>
+  <text x="415" y="292" class="small">但要看 SOC、磁性、对称性和实验证据。</text>
+
+  <rect x="740" y="85" width="320" height="215" class="box"/>
+  <text x="765" y="122" class="label">van Hove：来自鞍点</text>
+  <line x1="785" y1="250" x2="1015" y2="250" class="axis"/><line x1="785" y1="250" x2="785" y2="150" class="axis"/>
+  <path d="M805 225 C855 160, 925 160, 995 225" class="band"/>
+  <path d="M850 235 C900 190, 940 190, 980 235" class="band2"/>
+  <circle cx="900" cy="190" r="11" class="hot"/>
+  <text x="785" y="276" class="small">一个方向像山顶，另一个方向像山谷</text>
+  <text x="765" y="292" class="small">可提示不稳定性；不能单独证明 CDW/超导。</text>
+
+  <rect x="40" y="340" width="1020" height="135" class="warn"/>
+  <text x="65" y="374" class="label">真实材料为什么常常不像理想图</text>
+  <text x="65" y="405" class="body">理想 Kagome 紧束缚模型给出常见出发点；真实材料还会有多轨道混合、远邻跳跃、三维层间耦合、结构畸变、磁性、SOC、缺陷和费米能级偏移。</text>
+  <text x="65" y="435" class="body">因此正确说法不是“所有 Kagome 都有这三样”，而是“Kagome 几何提供候选故事，材料中必须逐项验证”。</text>
+
+  <rect x="40" y="510" width="1020" height="125" class="box"/>
+  <text x="65" y="545" class="label">论文怎样用这三样讲故事</text>
+  <text x="65" y="578" class="body">常见证据链：晶格/模型预期 -> DFT 或 ARPES 找到具体能带 -> 判断是否靠近费米能级 -> 连接输运、STM、散射或热力学实验 -> 说明哪些结论只是线索。</text>
+  <text x="65" y="608" class="body">CoSn 常用于讨论平带；Fe3Sn2 常用于讨论有质量 Dirac 和拓扑磁性；AV3Sb5 常用于讨论 van Hove、CDW 与超导的关系。</text>
+  <text x="40" y="680" class="small">原创教学图：用于解释读图顺序，不是任何论文的原始实验数据或计算结果。</text>
+</svg>
