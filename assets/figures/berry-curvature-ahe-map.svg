@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640" role="img" aria-label="Berry curvature and anomalous Hall effect teaching diagram">
+  <rect width="1100" height="640" fill="#ffffff"/>
+  <style>
+    text { font-family: Arial, 'Noto Sans SC', sans-serif; fill: #172033; }
+    .title { font-size: 30px; font-weight: 700; }
+    .label { font-size: 20px; font-weight: 700; }
+    .body { font-size: 17px; }
+    .small { font-size: 14px; fill: #45546b; }
+    .box { fill: #f5f7fb; stroke: #c9d3e6; stroke-width: 2; rx: 18; }
+    .warn { fill: #fff7ed; stroke: #f59e0b; stroke-width: 2; rx: 16; }
+    .blue { stroke: #2563eb; fill: none; stroke-width: 4; }
+    .red { stroke: #dc2626; fill: none; stroke-width: 4; }
+    .green { stroke: #059669; fill: none; stroke-width: 4; }
+    .axis { stroke: #26354d; stroke-width: 2; marker-end: url(#arrow); }
+    .arrow { stroke: #475569; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <radialGradient id="hot" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#dc2626" stop-opacity="0.9"/><stop offset="60%" stop-color="#f59e0b" stop-opacity="0.45"/><stop offset="100%" stop-color="#f8fafc" stop-opacity="0"/></radialGradient>
+  </defs>
+  <text x="40" y="48" class="title">Berry curvature 到 AHE：先看这条证据链</text>
+
+  <rect x="40" y="85" width="300" height="210" class="box"/>
+  <text x="65" y="122" class="label">1. 能带地图</text>
+  <line x1="85" y1="250" x2="295" y2="250" class="axis"/>
+  <line x1="85" y1="250" x2="85" y2="145" class="axis"/>
+  <path d="M95 228 C145 180, 190 180, 245 232" class="blue"/>
+  <path d="M100 165 C155 220, 205 220, 280 160" class="green"/>
+  <circle cx="190" cy="198" r="48" fill="url(#hot)"/>
+  <text x="105" y="275" class="small">横轴：k 空间位置</text>
+  <text x="105" y="152" class="small">纵轴：能量</text>
+  <text x="172" y="205" class="small">小能隙/近交叉</text>
+
+  <rect x="400" y="85" width="300" height="210" class="box"/>
+  <text x="425" y="122" class="label">2. Berry curvature 热点</text>
+  <rect x="445" y="150" width="210" height="105" fill="#eef2ff" stroke="#c7d2fe"/>
+  <circle cx="530" cy="202" r="42" fill="url(#hot)"/>
+  <path d="M470 220 C505 170, 555 170, 625 225" class="blue"/>
+  <path d="M465 185 C520 225, 575 225, 635 178" class="green"/>
+  <text x="430" y="278" class="small">颜色强：这里对横向运动贡献大</text>
+  <text x="430" y="298" class="small">重点问：它离费米能级近不近？</text>
+
+  <rect x="760" y="85" width="300" height="210" class="box"/>
+  <text x="785" y="122" class="label">3. AHE 实验信号</text>
+  <line x1="805" y1="245" x2="1015" y2="245" class="axis"/>
+  <line x1="910" y1="260" x2="910" y2="145" class="axis"/>
+  <path d="M815 232 C860 232, 865 160, 910 160 C955 160, 960 232, 1005 232" class="red"/>
+  <text x="820" y="274" class="small">横轴：外加磁场</text>
+  <text x="930" y="154" class="small">纵轴：Hall 响应</text>
+  <text x="795" y="298" class="small">先扣除普通 Hall 背景，再讨论异常部分</text>
+
+  <path d="M350 190 L390 190" class="arrow"/>
+  <path d="M710 190 L750 190" class="arrow"/>
+
+  <rect x="40" y="340" width="1020" height="110" class="warn"/>
+  <text x="65" y="374" class="label">读图顺序</text>
+  <text x="65" y="405" class="body">先找能带近交叉或小能隙，再看 Berry curvature 热点是否靠近费米能级，最后看计算出的 AHC 是否与实验 AHE 同号、同量级。</text>
+  <text x="65" y="432" class="body">只放一张热点图不够；还要检查普通 Hall 扣除、磁化曲线、电阻标度、样品质量和散射贡献。</text>
+
+  <rect x="40" y="480" width="500" height="110" class="box"/>
+  <text x="65" y="512" class="label">内禀贡献</text>
+  <text x="65" y="543" class="body">来自材料自己的能带和波函数结构。即使没有杂质偏置，能带几何也能给电子一个横向运动趋势。</text>
+
+  <rect x="560" y="480" width="500" height="110" class="box"/>
+  <text x="585" y="512" class="label">外禀散射贡献</text>
+  <text x="585" y="543" class="body">来自电子撞到杂质、缺陷或声子时的偏转。skew scattering 是左右撞歪不对称；side jump 是每次散射后横向挪一小步。</text>
+  <text x="40" y="625" class="small">原创教学图：用于解释证据链，不是任何论文的原始实验数据或计算结果。</text>
+</svg>
